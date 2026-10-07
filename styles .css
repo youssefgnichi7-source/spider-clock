@@ -1,140 +1,147 @@
 * {
-  margin: 0;
-  padding: 0;
   box-sizing: border-box;
 }
 
 body {
+  margin: 0;
   min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
   background: #000;
-  overflow: hidden;
+  color: white;
   font-family: Arial, sans-serif;
+  overflow: hidden;
 }
 
 .clock {
+  width: 430px;
+  height: 430px;
   position: relative;
-  width: 500px;
-  height: 500px;
   border-radius: 50%;
+  background: radial-gradient(circle, #160b00 0%, #050505 65%, #000 100%);
+  box-shadow:
+    0 0 15px #ff8c00,
+    0 0 45px rgba(255, 140, 0, 0.35);
 }
 
-.number {
+/* Numbers */
+.numbers span {
   position: absolute;
-  color: #3b2115;
-  font-size: 32px;
+  font-size: 30px;
   font-weight: bold;
-  text-shadow: 0 0 5px #8b4513;
+  color: #713700;
+  text-shadow: 0 0 8px rgba(255, 130, 0, 0.2);
 }
 
 .n12 { top: 5px; left: 50%; transform: translateX(-50%); }
-.n1  { top: 45px; right: 105px; }
-.n2  { top: 110px; right: 35px; }
-.n3  { top: 50%; right: 5px; transform: translateY(-50%); }
-.n4  { bottom: 110px; right: 35px; }
-.n5  { bottom: 45px; right: 105px; }
+.n1  { top: 25px; right: 105px; }
+.n2  { top: 85px; right: 42px; }
+.n3  { top: 190px; right: 12px; }
+.n4  { bottom: 100px; right: 42px; }
+.n5  { bottom: 32px; right: 105px; }
 .n6  { bottom: 5px; left: 50%; transform: translateX(-50%); }
-.n7  { bottom: 45px; left: 105px; }
-.n8  { bottom: 110px; left: 35px; }
-.n9  { top: 50%; left: 5px; transform: translateY(-50%); }
-.n10 { top: 110px; left: 35px; }
-.n11 { top: 45px; left: 105px; }
+.n7  { bottom: 32px; left: 105px; }
+.n8  { bottom: 100px; left: 42px; }
+.n9  { top: 190px; left: 12px; }
+.n10 { top: 85px; left: 42px; }
+.n11 { top: 25px; left: 105px; }
 
+/* Spider */
 .spider {
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 90px;
-  height: 90px;
   transform: translate(-50%, -50%);
+  font-size: 105px;
   z-index: 5;
+  filter:
+    drop-shadow(0 0 5px #ff7200)
+    drop-shadow(0 0 15px #ff9d00);
 }
 
-.spider-body {
-  position: absolute;
-  width: 45px;
-  height: 65px;
-  background: #ff9800;
-  border-radius: 50%;
-  top: 15px;
-  left: 22px;
-  box-shadow: 0 0 20px #ff9800;
-}
-
-.spider-eye {
-  position: absolute;
-  width: 9px;
-  height: 12px;
-  background: white;
-  border-radius: 50%;
-  top: 28px;
-  z-index: 2;
-}
-
-.eye1 { left: 32px; }
-.eye2 { left: 50px; }
-
-.leg {
-  position: absolute;
-  width: 65px;
-  height: 4px;
-  background: #ff9800;
-  transform-origin: right center;
-  box-shadow: 0 0 8px #ff9800;
-}
-
-.leg1 { top: 25px; right: 60px; transform: rotate(25deg); }
-.leg2 { top: 38px; right: 62px; transform: rotate(5deg); }
-.leg3 { top: 52px; right: 62px; transform: rotate(-15deg); }
-.leg4 { top: 65px; right: 60px; transform: rotate(-35deg); }
-
-.leg5 { top: 25px; left: 60px; transform: rotate(155deg); }
-.leg6 { top: 38px; left: 62px; transform: rotate(175deg); }
-.leg7 { top: 52px; left: 62px; transform: rotate(195deg); }
-.leg8 { top: 65px; left: 60px; transform: rotate(215deg); }
-
+/* Clock hands */
 .hand {
   position: absolute;
   left: 50%;
   bottom: 50%;
-  width: 4px;
-  background: #ff9800;
   transform-origin: bottom center;
-  box-shadow: 0 0 8px #ff9800;
-  z-index: 3;
+  border-radius: 10px;
+  z-index: 6;
 }
 
 .hour {
-  height: 110px;
+  width: 8px;
+  height: 90px;
+  background: #ff9d00;
+  box-shadow: 0 0 8px #ff8c00;
 }
 
 .minute {
-  height: 170px;
+  width: 5px;
+  height: 135px;
+  background: #ffb52e;
+  box-shadow: 0 0 8px #ff9900;
 }
 
 .second {
-  height: 195px;
   width: 2px;
-  background: #ff5e00;
+  height: 165px;
+  background: #fff;
+  box-shadow: 0 0 8px white;
 }
 
+/* Center */
 .center {
   position: absolute;
-  width: 16px;
-  height: 16px;
-  background: #ff9800;
+  width: 18px;
+  height: 18px;
+  background: #ff9d00;
   border-radius: 50%;
-  left: 50%;
   top: 50%;
+  left: 50%;
   transform: translate(-50%, -50%);
   z-index: 10;
-  box-shadow: 0 0 15px #ff9800;
+  box-shadow: 0 0 12px #ff8c00;
 }
 
-@media (max-width: 600px) {
+/* Mobile */
+@media (max-width: 500px) {
   .clock {
-    transform: scale(0.75);
+    width: 340px;
+    height: 340px;
   }
+
+  .numbers span {
+    font-size: 24px;
+  }
+
+  .spider {
+    font-size: 80px;
+  }
+
+  .hour {
+    height: 70px;
+  }
+
+  .minute {
+    height: 105px;
+  }
+
+  .second {
+    height: 130px;
+  }
+
+  .n12 { top: 5px; }
+  .n1 { top: 25px; right: 80px; }
+  .n2 { top: 70px; right: 30px; }
+  .n3 { top: 150px; right: 8px; }
+  .n4 { bottom: 80px; right: 30px; }
+  .n5 { bottom: 25px; right: 80px; }
+  .n6 { bottom: 5px; }
+  .n7 { bottom: 25px; left: 80px; }
+  .n8 { bottom: 80px; left: 30px; }
+  .n9 { top: 150px; left: 8px; }
+  .n10 { top: 70px; left: 30px; }
+  .n11 { top: 25px; left: 80px; }
 }
